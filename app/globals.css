@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+/* Design tokens — clients/north-tampa-bay-chamber/design-brief.md §Palette */
+:root {
+  --linen: #f5f3ee;
+  --paper: #ffffff;
+  --sand: #ece8df;
+  --ink: #1b2321;
+  --ink-2: #4a5553;
+  --deep: #203030;
+  --teal: #109090;
+  --teal-text: #0b7a7c;
+  --teal-light: #20b0b8;
+  --gold: #f8b810;
+  --gold-deep: #e89828;
+  --gray: #888888;
+  --rule: rgba(27, 35, 33, 0.14);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@theme inline {
+  --color-linen: var(--linen);
+  --color-paper: var(--paper);
+  --color-sand: var(--sand);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-deep: var(--deep);
+  --color-teal: var(--teal);
+  --color-teal-text: var(--teal-text);
+  --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+  --color-rule: var(--rule);
+  --font-display: var(--font-newsreader);
+  --font-label: var(--font-josefin);
+  --font-sans: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--linen);
+  color: var(--ink);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.label {
+  font-family: var(--font-josefin), sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+.display {
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-weight: 450;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.prose-body p + p {
+  margin-top: 1.1em;
+}
+
+.link {
+  color: var(--teal-text);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.link:hover {
+  text-decoration-thickness: 2px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-josefin), sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+  line-height: 1;
+  padding: 1rem 1.4rem 0.9rem;
+  border-radius: 999px;
+  transition:
+    transform 0.25s var(--ease),
+    background-color 0.25s var(--ease),
+    color 0.25s var(--ease);
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn-gold {
+  background: var(--gold);
+  color: var(--ink);
+}
+.btn-gold:hover {
+  background: #ffc935;
+}
+.btn-ink {
+  background: var(--ink);
+  color: var(--linen);
+}
+.btn-ink:hover {
+  background: var(--deep);
+}
+.btn-line {
+  box-shadow: inset 0 0 0 1.5px var(--ink);
+  color: var(--ink);
+}
+.btn-line:hover {
+  background: var(--ink);
+  color: var(--linen);
+}
+.btn-line-light {
+  box-shadow: inset 0 0 0 1.5px rgba(245, 243, 238, 0.6);
+  color: var(--linen);
+}
+.btn-line-light:hover {
+  background: var(--linen);
+  color: var(--ink);
+}
+
+.container-x {
+  width: 100%;
+  max-width: 82rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 768px) {
+  .container-x {
+    padding-inline: 2.5rem;
+  }
+}
